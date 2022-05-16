@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>freedom</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #head-bar {
+      position: relative;
+      width: 100%;
+      height: 60px;
+      color: aliceblue;
+      font-size: 21px;
+      background-color: rgb(107, 175, 248);
+    }
+    #head-bar p {
+      position: absolute;
+      bottom:5px;
+    }
+    #pic {
+      height: 130px;
+      width: 130px;
+      border-radius: 23%;
+      margin: auto;
+      margin-top: 40px;
+      text-align: center;
+      background-color: rgb(1, 255, 255);
+    }
+    #pic svg {
+      display: block;
+      margin: 0 auto;
+      padding-top: 15px;
+    }
+    /* 伪类画一个三角形 */
+
+    #stu{
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 40px;
+      padding-bottom: 70px;
+    }
+    #detail {
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      padding-bottom: 40px;
+    }
+    #time {
+      color: rgb(145, 148, 155);
+      font-size: 25px;
+      font-weight: bold;
+      text-align: center;
+    }
+    #time-detail {
+      color: rgb(247, 103, 100);
+      font-size: 33px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="head-bar">
+    <p> ehallapp.nnu.e...sult/14/enter :</p>
+  </div>
+  <div id="pic">
+    <svg t="1652256226341" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2877" width="90" height="90"><path d="M997.888 70.144C686.592 261.12 460.8 502.272 358.912 623.104L110.08 428.032 0 516.608l429.568 437.248C503.296 764.416 737.792 394.24 1024 131.072l-26.112-60.928m0 0z" p-id="2878" fill="#ffffff"></path></svg>
+  </div>
+
+  <div id="stu">
+      学生
+  </div>
+
+  <div id="detail">
+      陈妍珂，验证成功，欢迎进入
+  </div>
+
+  <div id="time">
+      本次扫码时间
+  </div>
+
+  <div id="time-detail">
+
+  </div>
+  <script>
+
+    function getNowTime(date) {
+	    var Y = date.getFullYear() + '-';
+	    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+	    var D = date.getDate()< 10 ? '0' +date.getDate() + ' ': date.getDate() + ' ';
+	    var h = date.getHours()< 10 ? '0' + date.getHours() + ':' : date.getHours() + ':';
+	    var m = date.getMinutes() < 10 ? '0' + date.getMinutes() + ':' : date.getMinutes() + ':';
+	    var s = date.getSeconds() < 10 ? '0' + date.getSeconds() + ':' : date.getSeconds() ;
+	    return Y + M + D + h + m + s;
+    }
+    function showDate(){
+      var dateObj = new Date();
+      var str = getNowTime(dateObj);
+      document.getElementById("time-detail").innerText = str;
+      setTimeout(showDate,1000) 
+    }
+    showDate()  //注意这里三次调用的都是同一个函数
+  </script>
+</body>
+</html>
